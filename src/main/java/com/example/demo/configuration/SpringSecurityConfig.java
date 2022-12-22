@@ -31,7 +31,6 @@ import java.beans.JavaBean;
 
 @Configuration
 @EnableWebSecurity
-@ConfigurationProperties(prefix="ibrahim")
 @Data
 @SuppressWarnings("deprecation")
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -44,14 +43,11 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     JwtFilter jwtFilter;
     @Override
     public void configure(HttpSecurity httpSecurity) throws Exception {
-        System.out.println("your last name is "+lastName);
         httpSecurity.csrf()
                 .disable()
-                .formLogin().and()
                 .cors()
                 .and()
-                .httpBasic()
-                .and()
+                .httpBasic().disable()
                 .authorizeRequests()
                 .antMatchers("/api/auth/**")
                 .permitAll()

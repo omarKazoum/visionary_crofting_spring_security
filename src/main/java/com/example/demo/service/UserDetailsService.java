@@ -90,8 +90,6 @@ public class UserDetailsService implements org.springframework.security.core.use
     }
     public UserLoginDTO login(UserLoginDTO loginDTO) throws AuthenticationCredentialsNotFoundException{
             UsernamePasswordAuthenticationToken token=new UsernamePasswordAuthenticationToken(loginDTO.getEmail(),loginDTO.getPassword());
-            Class cl=authManager.getClass();
-            Class s=authManager.getClass().getSuperclass();
             authManager.authenticate(token);
             UserLoginDTO responseDto=new UserLoginDTO();
             String jwtToken=jwtUtil.generateToken(loginDTO.getEmail());
