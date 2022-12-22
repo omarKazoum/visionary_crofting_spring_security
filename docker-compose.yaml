@@ -10,3 +10,7 @@ services:
       POSTGRES_DB: orders
     volumes:
       - ./data/database:/var/lib/postgresql/data
+#  sonarqube:
+#    image: sonarqube
+#    ports:
+#      - 9001:9000

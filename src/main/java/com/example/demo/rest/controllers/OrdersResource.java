@@ -1,19 +1,18 @@
-package com.example.demo.rest;
+package com.example.demo.rest.controllers;
 
 
 
 import com.example.demo.domain.Order;
 import com.example.demo.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/orders")
-public class CommandeResource {
+public class OrdersResource {
 
     @Autowired
     OrderService orderService;
@@ -22,6 +21,9 @@ public class CommandeResource {
     public Order save(@RequestBody @Valid Order order) {
         return orderService.save(order);
     }
-
+    @GetMapping("/")
+    public List<Order> getAll(){
+       return orderService.getAll();
+    }
 
 }

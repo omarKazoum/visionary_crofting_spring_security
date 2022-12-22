@@ -26,6 +26,16 @@ public class Order implements Serializable {
     private LocalDateTime createdAt;
 
     private Double totalPrice;
+    @ManyToOne
+    private Client client;
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
 
     @OneToMany(mappedBy = "order") @NotNull @NotEmpty @Valid
     private Set<OrderItem> orderItems = new HashSet<>();

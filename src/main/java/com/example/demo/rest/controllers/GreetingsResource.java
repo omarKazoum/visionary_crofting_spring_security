@@ -1,4 +1,4 @@
-package com.example.demo.rest;
+package com.example.demo.rest.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
